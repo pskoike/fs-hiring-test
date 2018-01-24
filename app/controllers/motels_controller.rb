@@ -1,0 +1,2 @@
+class MotelsController < ApplicationController
+end
