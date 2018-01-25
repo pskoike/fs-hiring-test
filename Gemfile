@@ -37,6 +37,7 @@ gem 'jquery-rails'
 # Use Slim
 gem 'slim'
 gem 'simple_form'
+gem 'httparty'
 gem 'devise'
 
 group :development, :test do

@@ -1,13 +1,12 @@
 .container
   h1.text-center.mar-b2 Motels
   .row
+  - @motels.each do |motel|
     .col-xs-12.col-sm-3.col-sm-offset-1
-      - @motels.each do |motel|
-        .card
-          .card-header
-            =image_tag(motel.logo)
-          .card-content
-            p =motel.name
-            p = "Total Roooms: #{motel.rooms.count}"
-            p Total revenue:
-            = link_to('Full Report', motel_path(motel), class: 'btn btn-primary btn-block')
+      .card
+        .card-header
+          =image_tag(motel.logo)
+        .card-content
+          p =motel.name
+          p Total revenue:
+          = link_to('Full Report', motel_path(motel), class: 'btn btn-primary btn-block')

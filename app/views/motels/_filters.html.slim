@@ -1,0 +1,7 @@
+p.mar-t2 Latest
+.filter
+  = button_to('5', motel_path(@motel), method: :get, class: 'btn btn-default', params: { :filter => "5"})
+  = button_to('10', motel_path(@motel), method: :get, class: 'btn btn-default', params: { :filter => "10"})
+  = button_to('20', motel_path(@motel), method: :get, class: 'btn btn-default', params: { :filter => "20"})
+  = button_to('30', motel_path(@motel), method: :get, class: 'btn btn-default', params: { :filter => "30"})
+  = button_to('ALL', motel_path(@motel), method: :get, class: 'btn btn-default')
