@@ -36,7 +36,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 # Use Slim
 gem 'slim'
-
+gem 'simple_form'
 gem 'devise'
 
 group :development, :test do

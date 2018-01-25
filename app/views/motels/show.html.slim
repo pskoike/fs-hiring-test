@@ -1,0 +1,49 @@
+.container
+  h1.text-center.mar-b2 = "#{@motel.name}'s Report"
+  .row
+    .col-xs-12.col-md-3
+      .card
+        .card-header
+          =image_tag(@motel.logo)
+        .card-content
+          p =@motel.name
+          p = "Total Roooms: #{@motel.rooms.count}"
+          p Total revenue:
+      = link_to("Change Motel", motels_path, class:'btn btn-primary btn-block')
+    .col-xs-12.col-md-9
+      .card
+        .table-responsive
+          table.table.table-hover.text-center
+            thead
+              tr
+                td
+                  Table Room
+                td
+                  Table Booking Period
+                td
+                  Table Booking Code
+                td
+                  Table Paid at
+                td
+                  Table Amount($)
+                td
+                  Table Fee(%)
+                td
+                  Table Revenue($)
+            tbody
+              - @motel.bookings.each do |booking|
+                tr
+                  td
+                    = booking.room.name
+                  td
+                    = booking.booking_period
+                  td
+                    = booking.booking_code
+                  td
+                    = booking.paid_at.strftime("%m/%d/%Y at %I:%M%p")
+                  td
+                    = booking.amount_centavos / 100.00
+                  td
+                    = booking.fee_percentage
+                  td
+                    = calc_book_revenue(booking)

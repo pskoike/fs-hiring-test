@@ -11,5 +11,65 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
+ // Graphical variables
+@import "config/variables";
+@import "config/bootstrap_variables";
+
+ // External libraries
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+// Custom CSS
+ @import "components/**/*";
+
+
+// Helpers
+
+.mar-1 {
+  margin: 15px;
+}
+
+.mar-2 {
+  margin: 30px;
+}
+
+.mar-t1 {
+  margin-top: 15px;
+}
+
+.mar-t2 {
+  margin-top: 30px;
+}
+
+.mar-b1 {
+  margin-bottom: 15px;
+}
+
+.mar-b2{
+  margin-bottom: 30px;
+}
+
+.pad-1 {
+  padding: 15px;
+}
+
+.pad-2 {
+  padding: 30px;
+}
+
+.pad-t1 {
+  padding-top: 15px;
+}
+
+.pad-t2 {
+  padding-top: 30px;
+}
+
+.pad-b1 {
+  padding-bottom: 15px;
+}
+
+.pad-b2{
+  padding-bottom: 30px;
+}
