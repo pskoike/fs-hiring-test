@@ -19,7 +19,7 @@ module Luvotels
       def self.fetch_motels
         api_url = "https://luvotels-hiring-api.herokuapp.com/motels.json"
         response = HTTParty.get(api_url)
-        Rails.logger.info "fetched #{response.size} motels from #{api_url}"
+        p "fetched #{response.size} motels from #{api_url}"
         motels_list = response.parsed_response
       end
 
@@ -30,7 +30,7 @@ module Luvotels
           api_url = "https://luvotels-hiring-api.herokuapp.com/motels/#{motel.id}/rooms.json"
           response = HTTParty.get(api_url)
           rooms_list << response.parsed_response
-          Rails.logger.info "fetched #{response.size} rooms from #{api_url}"
+          p "fetched #{response.size} rooms from #{api_url}"
         end
         rooms_list.flatten
       end
@@ -48,10 +48,10 @@ module Luvotels
           if Motel.exists?(motel['id'])
             m = Motel.find(motel['id'])
             m.update(motel)
-            Rails.logger.info "UPDATED: #{m.id} - #{m.name}"
+            p "UPDATED: #{m.id} - #{m.name}"
           else
             m = Motel.create(motel)
-            Rails.logger.info "CREATED: #{m.id} - #{m.name}"
+            p "CREATED: #{m.id} - #{m.name}"
           end
         end
       end
@@ -63,13 +63,13 @@ module Luvotels
             r = Room.find(room['id'])
             if r.attributes['name'] != room['name'] || r.attributes['picture'] != room['picture']
               r.update(room)
-              Rails.logger.info "UPDATED: #{r.id} - #{r.name}"
+              p "UPDATED: #{r.id} - #{r.name}"
             else
-              Rails.logger.info "NO CHANGES: #{r.id} - #{r.name}"
+              p "NO CHANGES: #{r.id} - #{r.name}"
             end
           else
             r = Room.create(room)
-            Rails.logger.info "CREATED: #{r.id} - #{r.name}"
+            p "CREATED: #{r.id} - #{r.name}"
           end
         end
       end
