@@ -86,7 +86,7 @@ module Luvotels
 
       # Cached Get request to Luvmotels API.
       def self.cached_response(key, url)
-        Rails.cache.fetch(key, expires: 2.hours) do
+        Rails.cache.fetch(key, expires: 10.minutes) do
           response = HTTParty.get(url)
           response = response.parsed_response if response.success?
         end
