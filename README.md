@@ -14,6 +14,10 @@ It works from data provide by Luvotels API with a custom wrapper created with HT
 4. Run `bundle exec rake update_db` to fetch initial Motels and Rooms from Luvotels API
 5. Run `rails db:seed` to create example users
 
+## Basic tests
+
+Tests are handle ny Rspec. Just run `rspec specs` to run tests for models and API calls.
+
 ## Luvotels::Api Wrapper methods
 
 A module was created for API calls to facilitate more complex integration and in the case records are being fetch from different API.
