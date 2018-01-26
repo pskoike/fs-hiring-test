@@ -2,11 +2,29 @@
   h1.text-center.mar-b2 Motels
   .row
   - @motels.each do |motel|
-    .col-xs-12.col-sm-3.col-sm-offset-1
+    .col-xs-12.col-sm-3
       .card
         .card-header
           =image_tag(motel.logo)
         .card-content
-          p =motel.name
-          p Total revenue:
-          = link_to('Full Report', motel_path(motel), class: 'btn btn-primary btn-block')
+          h3.text-center = motel.name
+          hr
+          h4.text-center Revenue
+          table.table.text-center
+            thead
+              tr.lighter
+                td Today
+                td Last 7 days
+                td Last 30 days
+              tbody
+                tr
+                  td.info
+                    | $
+                    = calc_revenue_for_period(motel.bookings, 1)
+                  td.warning
+                    | $
+                    = calc_revenue_for_period(motel.bookings, 8)
+                  td.success
+                    | $
+                    = calc_revenue_for_period(motel.bookings, 31)
+        = link_to('Full Report', motel_path(motel), class: 'btn btn-primary btn-block')

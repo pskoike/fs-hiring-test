@@ -3,34 +3,20 @@
     table.table.table-hover.text-center
       thead
         tr
-          td
-            Table Room
-          td
-            Table Booking Period
-          td
-            Table Booking Code
-          td
-            Table Paid at
-          td
-            Table Amount($)
-          td
-            Table Fee(%)
-          td
-            Table Revenue($)
+          td Room
+          td Booking Period
+          td Booking Code
+          td Paid at
+          td Amount($)
+          td Fee(%)
+          td Revenue($)
       tbody
         - bookings.each do |booking|
           tr
-            td
-              = booking.room.name
-            td
-              = booking.booking_period
-            td
-              = booking.booking_code
-            td
-              = booking.paid_at.strftime("%m/%d/%Y at %I:%M%p")
-            td
-              = booking.amount_centavos / 100.00
-            td
-              = booking.fee_percentage
-            td
-              = calc_book_revenue(booking)
+            td = booking.room.name
+            td = booking.booking_period
+            td = booking.booking_code
+            td = booking.paid_at.strftime("%d/%m/%Y at %I:%M%p")
+            td = booking.amount_centavos / 100.00
+            td = booking.fee_percentage
+            td = calc_book_revenue(booking)

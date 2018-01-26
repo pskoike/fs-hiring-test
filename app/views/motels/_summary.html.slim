@@ -1,0 +1,8 @@
+.card.flex
+  h4.text-center
+    | Booking in the period:
+    = @bookings.size
+  hr
+  h4.text-center
+    | Total revenue for the period: $
+    = calc_total_revenue(@bookings)

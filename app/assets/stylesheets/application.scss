@@ -51,6 +51,14 @@
   margin-bottom: 30px;
 }
 
+.mar-l1 {
+  margin-left: 15px;
+}
+
+.mar-r1 {
+  margin-right: 15px;
+}
+
 .pad-1 {
   padding: 15px;
 }
@@ -73,4 +81,17 @@
 
 .pad-b2{
   padding-bottom: 30px;
+}
+
+// Text
+.bolder {
+  font-weight: bolder;
+}
+
+.lighter {
+  font-weight: lighter;
+}
+
+.upcase {
+  text-transform: uppercase;
 }

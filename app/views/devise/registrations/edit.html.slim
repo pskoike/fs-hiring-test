@@ -1,9 +1,9 @@
 .container
   .row
-    .col-xs-12.col-sm-6.col-sm-offset-3
-      h2.text-center.mar-b2 Edit
+    .col-xs-12.col-sm-4.col-sm-offset-4
       .card.text-center
         .card-content
+          h2.text-center.mar-b2 Edit
           = resource_name.to_s.humanize
           = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
             = devise_error_messages!

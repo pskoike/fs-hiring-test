@@ -21,8 +21,6 @@ module Luvotels
         response = HTTParty.get(api_url)
         Rails.logger.info "fetched #{response.size} motels from #{api_url}"
         motels_list = response.parsed_response
-
-
       end
 
       # fetch motels from API

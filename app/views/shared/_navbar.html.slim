@@ -1,20 +1,5 @@
-/ nav.navbar.navbar-default role="navigation"
-/   .container-fluid
-/     .navbar-header
-/         button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
-/           span.sr-only Toggle navigation
-/           span.icon-bar
-/           span.icon-bar
-/           span.icon-bar
-/         a.navbar-brand href="#"  Brand
-/     #bs-example-navbar-collapse-1.collapse.navbar-collapse
-/       - if current_user
-/         = link_to('Logout', destroy_user_session_path, class: 'btn  btn-primary navbar-btn',  method: :delete)
-/       - else
-/         = link_to('Login', new_user_session_path, class:' btn navbar-btn')
-/         = link_to('Register', new_user_registration_path, class:'btn  navbar-btn')
 nav.navbar.navbar-default role="navigation"
-  .container-fluid
+  .container
     /! Brand and toggle get grouped for better mobile display
     .navbar-header
       button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
@@ -22,11 +7,13 @@ nav.navbar.navbar-default role="navigation"
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href="#"  Brand
+      a.navbar-brand href="#" Luvotels Report
     /! Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       - if current_user
-        = link_to('Logout', destroy_user_session_path, class: 'btn  btn-primary navbar-btn',  method: :delete)
+        = link_to('Logout', destroy_user_session_path, class: 'btn  btn-primary navbar-btn mar-r1',  method: :delete)
+        = link_to("Change Motel", motels_path, class:'btn btn-info mar-r1')
+        = "Welcome #{current_user.email}"
       - else
-        = link_to('Login', new_user_session_path, class:' btn navbar-btn')
-        = link_to('Register', new_user_registration_path, class:'btn  navbar-btn')
+        = link_to('Login', new_user_session_path, class:'btn btn-primary navbar-btn mar-r1')
+        = link_to('Register', new_user_registration_path, class:'btn btn-info navbar-btn')
