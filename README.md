@@ -16,7 +16,7 @@ It works from data provide by Luvotels API with a custom wrapper created with HT
 
 ## Basic tests
 
-Tests are handle ny Rspec. Just run `rspec specs` to run tests for models and API calls.
+Tests are handle by Rspec. Just run `rspec specs` to run tests for models and API calls.
 
 ## Luvotels::Api Wrapper methods
 
