@@ -8,8 +8,9 @@ class MotelsController < ApplicationController
   def show
     @motel = Motel.find(params['id'])
     @rooms = @motel.rooms
-    @bookings = filter_booking(@motel, params)
     Luvotels::Api.fetch_and_update_bookings(@motel)
+    @bookings = filter_booking(@motel, params)
+
   end
 
   private

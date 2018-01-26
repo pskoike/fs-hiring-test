@@ -1,14 +1,50 @@
 # Luvotels - Full-stack hiring test
 
-## Foreword
+## Description
 
-Hi, this is the tech team at Luvotels, welcome to our Full-stack practical test!
+Luvotels Report allow motel owner to easily see their revenue. It's an hiring exercise from Luvotels greatly inspired by the Frontend challenge of Intellipost. GG! https://github.com/intelipost/job-frontend-developer
 
-You should have gotten here during our hiring process but if you got there *by chance* and you find the idea fun please send us an email at hello@luvotels.com!
+It works from data provide by Luvotels API with a custom wrapper created with HTTParty.
 
-The idea here is to use the same test case for any level (apprentice/junior/mid/senior) but judge it according to your level. So don't be afraid if you're an apprentice or a junior, just do your best!
 
-## How-to
+## Setup
+1. Clone the repository
+2. Run `bundle install`
+3. Run `rails db:create db:migrate` to create database e schema
+4. Run `bundle exec rake update_db` to fetch initial Motels and Rooms from Luvotels API
+5. Run `rails db:seed` to create example users
+
+## Luvotels::Api Wrapper methods
+
+A module was created for API calls to facilitate more complex integration and in the case records are being fetch from different API.
+
+- `Luvotels::Api.update_database` updates Motels and Rooms records in the database. Used by Cron task `update_db` once a day.
+- `Luvotels::Api.fetch_and_update_bookings(motel)` fetch and update all Bookings for a specifc Motel. Receives a instance of motel as argument. The API call is cached by a Rails low-level cache.
+
+## Users and User authentication
+
+For the exercise proprosite it was 3 users where created by the `db:seed` and they are:
+1. jb@luvotels.com  | 123456  |  Motel: 200
+2. rodrigo@luvotels.com  |  123456  | Motel: 42
+3. helio@luvotels.com   |  123456  |  Motel: 24
+
+Each one has it's own motel. To exercise login requirements, since there where NO data from user in the API, the chosen association was `:user Belongs_to :motel` so that the `id` was in `Users` table and not at `Motels` table.
+
+Authentication is handle by Devise.
+
+## Considerations
+
+Layout fully responsive, mobile first. As a nice feature, Motel owner can see the number and total revenue for any room or day, just using bulti-in filters. Check it out: https://fs-hiring-koike.herokuapp.com
+
+
+
+
+
+
+
+
+## Original README
+### How-to
 
 1. Create a fork of this project
 2. Do your thing
@@ -34,7 +70,7 @@ If you have any question you can:
 * Browse the issues https://github.com/luvotels/fs-hiring-test/issues and/or create one
 * Send an email to hello@luvotels.com
 
-## The challenge
+### The challenge
 
 You will build a bookings report page for the motels owners.
 
@@ -120,6 +156,6 @@ Will return the list of bookings for the specified motel, for every booking you'
 
 Hope you have fun, any doubts please feel free to contact us hello@luvotels.com
 
-## Thanks
+### Thanks
 
 The structure of this README is greatly inspired by the Frontend challenge of Intellipost. GG! https://github.com/intelipost/job-frontend-developer
